@@ -51,7 +51,10 @@ function puFromMd(markdown) {
     const md = new markdownit();
     const fences = md.parse(markdown, {})
         .filter(token => token.type === 'fence')
-        .filter(token => infoRegexp.test(token.info));
+        .filter(token => {
+		console.log(token.info)
+		return infoRegexp.test(token.info)
+	});
 
     return fences.reduce((accum, fence) => {
         const [, umlType, name] = fence.info.match(infoRegexp) || [];
