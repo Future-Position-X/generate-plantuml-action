@@ -45,7 +45,7 @@ export function retrieveCodes(files) {
     }, []);
 }
 
-const infoRegexp = /^plantuml(?:@(.+))?:([\w-_.]+)/;
+const infoRegexp = /^plantuml(?:@(.+))?\s?:([\w-_.]+)/;
 
 function puFromMd(markdown) {
     const md = new markdownit();
